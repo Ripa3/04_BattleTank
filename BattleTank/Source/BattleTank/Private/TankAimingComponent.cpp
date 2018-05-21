@@ -52,13 +52,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		auto TankName = GetOwner()->GetName();
 		MoveBarrelTowards(AimDirection);
 		MoveTurretTowards(AimDirection);
-		UE_LOG(LogTemp, Warning, TEXT("AimSolution found"))
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("No Aim Solution Found"))
-	}
-
 }
 
 void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
