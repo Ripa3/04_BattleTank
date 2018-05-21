@@ -2,6 +2,7 @@
 
 #include "TankTurret.h"
 #include "Math/UnrealMathUtility.h"
+#include "Engine/World.h"
 
 
 void UTankTurret::RotateTurret(float RelativeSpeed)
