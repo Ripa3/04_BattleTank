@@ -33,6 +33,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	void Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 
+	void BeginPlay();
+	void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction);
+
 	void AimAt(FVector HitLocation);
 
 	UFUNCTION(BlueprintCallable, Category = "Firing")
@@ -56,8 +59,11 @@ private:
 	float LaunchSpeed = 8000.f;
 
 	double LastFireTime = 0;
+	FVector AimDirection;
 
-	void MoveBarrelTowards(FVector AimDirection);
-	void MoveTurretTowards(FVector AimDirection);
+	void MoveBarrelTowards();
+	void MoveTurretTowards();
+
+	bool IsBarrelMoving();
 	
 };
