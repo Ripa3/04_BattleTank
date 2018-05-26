@@ -29,7 +29,7 @@ public:
 	void DriveTrack();
 
 	UPROPERTY(EditDefaultsOnly)
-	float TrackMaxDrivingForce = 400000.f;
+	float TrackMaxDrivingForce = 50000000.f;
 	
 	float CurrentThrottle = 0.f;
 };

@@ -21,7 +21,14 @@ void ATankAIController::Tick(float DeltaTime)
 		MoveToActor(PlayerTank, AcceptanceRadius); //TODO find useful radius
 
 		ControlledTankAimingComp->AimAt(PlayerTank->GetActorLocation());
-		ControlledTankAimingComp->Fire();  //TODO fix rate of fire
+
+		//checks the aiming firing state
+		auto ComponentFiringState = ControlledTankAimingComp->GetFiringState();
+		if (ComponentFiringState == EFiringStatus::Locked)
+		{
+			ControlledTankAimingComp->Fire();
+		}
+		//TODO fix rate of fire
 	}
 }
 
