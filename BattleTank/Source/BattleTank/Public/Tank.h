@@ -16,12 +16,16 @@ private:
 	ATank();
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
-	float StartingHealth = 100.f;
+	int32 StartingHealth = 100.f;
 
 	UPROPERTY(VisibleAnywhere, Category = "Health")
-	float CurrentHealth = StartingHealth;
+	int32 CurrentHealth = StartingHealth;
 
 public:
 	//called by the engine when actor damage is dealt
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const & DamageEvent, class AController * EventInstigator, AActor * DamageCauser) override;
+
+	//returns CurrentHealth as a percentage of StartingHealth
+	UFUNCTION(BlueprintPure, Category = "Health")
+	float GetHealthPercent() const;
 };
